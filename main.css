@@ -1,0 +1,12 @@
+a {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+a:focus {text-decoration: none;}
+a:hover, a:active {text-decoration: none;}
+
+.oh {color:#4AA02C;}
+.oh:visited {color:#4AA02C;}
+.draw {color:#307D7E;}
+.draw:visited {color: #307D7E;}
+
+p {color:#990012;}
