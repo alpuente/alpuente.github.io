@@ -24,6 +24,8 @@
         ctx = canvas.getContext("2d");
         w = canvas.width;
         h = canvas.height;
+		ctx.fillStyle = "white";
+		ctx.fillRect(0,0,w,h);
     
         canvas.addEventListener("mousemove", function (e) {
             findxy('move', e)
