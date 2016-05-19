@@ -19,8 +19,8 @@
  
 	function drawTildas(){
 		var tildas = document.getElementById('tildas');
-		var i = 0, y = get_height(); tilda_string = "";
-		for (i = 0; i < y; i += 7) {
+		var i, y = get_height(); tilda_string = "";
+		for (i = 1; i < y; i = i * 1.2) {
 			tilda_string += "~<br>";
 		} 
 		tilda_string += ":q!"
@@ -46,4 +46,3 @@
 
 </body>
 </html>
-
