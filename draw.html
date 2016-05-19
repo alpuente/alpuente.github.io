@@ -85,6 +85,14 @@
         ctx.closePath();
     }
 
+	// save the image
+	// used this stack overflow article to write this: http://stackoverflow.com/questions/10673122/how-to-save-canvas-as-an-image-with-canvas-todataurl
+	function save() {
+		var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+		window.location.href=image;	
+	}
+
 	function findxy(res, e) {
 		if(res == 'down') {
             prevX = currX;
@@ -134,6 +142,7 @@
         <div style="position:absolute;top:24%;left:15%;width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
         <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
         <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:28%;left:14%;">
+		<input type="button" value="save" id="saveme" size="23" onclick="save()" style="position:absolute;top:28%;left:19%;">
 	</center>
 
 </body>

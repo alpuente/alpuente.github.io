@@ -5,17 +5,26 @@
 	<title>Amy Puente</title>
 
 	<script>
-	var w = window,
-		d = document,
-		e = d.documentElement,
-		g = d.getElementsByTagName('body')[0],
-		tildas = d.getElementById("tildas");
-		x = w.innerWidth || e.clientWidth || g.clientWidth,
-		y = w.innerHeight || e.clientHeight || g.clientHeight;
-	
+
+	function get_height() {
+		var w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			tildas = d.getElementById("tildas");
+			x = w.innerWidth || e.clientWidth || g.clientWidth,
+			y = w.innerHeight || e.clientHeight || g.clientHeight;
+		return y;
+	}
+ 
 	function drawTildas(){
 		var tildas = document.getElementById('tildas');
-		tildas.innerHTML = '~';
+		var i = 0, y = get_height(); tilda_string = "";
+		for (i = 0; i < y; i += 7) {
+			tilda_string += "~<br>";
+		} 
+		tilda_string += ":q!"
+		tildas.innerHTML = tilda_string;
 	}	
 	</script>
 </head>
@@ -34,26 +43,6 @@
 
 <div id="tildas">
 </div>
-<!--
-<section class="tilda">
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p> ~ </p>
-   <p>:q!</p>
-
-</section>
-<-->
 
 </body>
 </html>
