@@ -1,4 +1,6 @@
-a {text-decoration: none;}
+body {font-family:monospace;}
+
+a{text-decoration: none;}
 a:visited {text-decoration: none;}
 a:hover {text-decoration: none;}
 a:focus {text-decoration: none;}
@@ -8,5 +10,13 @@ a:hover, a:active {text-decoration: none;}
 .oh:visited {color:#4AA02C;}
 .draw {color:#307D7E;}
 .draw:visited {color: #307D7E;}
+.tutorial {color:#E56717;}
+.tutorial:visited {color:#E56717;}
 
-p {color:#990012;}
+p {color:#008080;}
+
+.pen {text-indent: 50px;}
+
+.grub_title {color: #504A4B;}
+.grub_h2 {color: #504A4B;}
+
