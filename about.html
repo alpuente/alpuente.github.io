@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <head>
 	<script src="tildas.js"></script>
+    <script>
+        var things = [
+            "git", 
+            "cooking",
+            "baking",
+            "yoga",
+            "spanish", 
+            "traveling",
+            "embedded things",
+            "c/c++",
+            "vim",
+            "whitewater kayaking",
+            "camping"    
+        ];
+        
+        var thing_index = 0;
+
+        function set_div() {
+            if (thing_index == things.length) {
+                thing_index = 0;
+            }
+            var html_string = "<p style=\"display:inline\">" + things[thing_index] + "</p>";
+            document.getElementById("things").innerHTML = html_string;
+            thing_index++;
+        }
+
+        function init() {
+            setInterval(function() { set_div(); }, 100); 
+        }
+    </script>
 	<link rel="stylesheet" href="main.css">
 </head>
 
-<body style="font-family:monospace">
-	<p> Hi! I'm Amy. I'm all up here on the internet trying to learn a little about HTML and JavaScript.</p>
-	<div id="tildas"></div>
+<body onLoad=init() style="font-family:monospace">
+	<p> Hi! I'm Amy. Here are some things about me ~</p>
+    <p> In January of 2016 I opened a terminal for the first time and wrote my first hello world.  Since then, I've been falling more and more in love with computer science and have been trying to learn as much as I can about it.</p>
+    <p> I'm currently an embedded software engineer at Lockheed Martin Aeronautics company. </p>	
+    <div>
+        <p style="display:inline">I enjoy and am trying to learn a lot of things, like</p>
+        <p id="things"></p>
+    </div>
+<div id="tildas"></div>
 </body>
 
 </html>
