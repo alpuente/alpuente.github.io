@@ -13,6 +13,9 @@ a:hover, a:active {text-decoration: none;}
 .tutorial {color:#E56717;}
 .tutorial:visited {color:#E56717;}
 
+.about{color:#D4AC0D;}
+.about:visited {color:#D4AC0D;}
+
 p {color:#008080;}
 
 .pen {text-indent: 50px;}
