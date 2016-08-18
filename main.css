@@ -6,6 +6,10 @@ a:hover {text-decoration: none;}
 a:focus {text-decoration: none;}
 a:hover, a:active {text-decoration: none;}
 
+.about {color:#008080;}
+.about:visited {color:#008080;}
+.oh {color:#4AA02C;}
+.oh:visited {color:#4AA02C;}
 .oh {color:#4AA02C;}
 .oh:visited {color:#4AA02C;}
 .draw {color:#307D7E;}
@@ -17,6 +21,7 @@ a:hover, a:active {text-decoration: none;}
 .about:visited {color:#D4AC0D;}
 
 p {color:#008080;}
+
 
 .pen {text-indent: 50px;}
 
