@@ -4,7 +4,7 @@
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 canvas.width = 512;
-canvas.height = 480;
+canvas.height = 680;
 document.body.appendChild(canvas);
 
 var backgroundReady = false;
@@ -60,7 +60,7 @@ var reset = function () {
 
     // throw the monster somewhere on the screen randomly
     monster.x = 32 + (Math.random() * (canvas.width - 64));
-    monster.y = 32 + (Math.random() * (canvas.height - 64));
+    monster.y = 32 + (Math.random() * (canvas.height - 264));
 };
 
 // update game objects
@@ -105,11 +105,13 @@ var render = function () {
     }
     
     // score
-    //ctx.fillStyle = "rgb(250, 250, 250)";
     ctx.font = "24px Helvetica";
     ctx.textAlign = "left";
     ctx.textBaseAlign = "top";
-    ctx.fillText("Monster cats caught: " + monstersCaught, 32, 32);
+    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.fillRect(0, 480, 512, 200);
+    ctx.fillStyle = "rgb(75, 0, 130)";
+    ctx.fillText("Kitties caught: " + monstersCaught, 165, 500);
 };
 
 // main game loop

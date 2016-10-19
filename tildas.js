@@ -15,7 +15,7 @@
         for (i = 1; i < y; i = i * 1.2) {
             tilda_string += "~<br>";
         } 
-        tilda_string += ":q"
+        tilda_string += ":q!"
         tildas.innerHTML = tilda_string;
     } 
 
