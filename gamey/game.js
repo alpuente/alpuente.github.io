@@ -123,7 +123,7 @@ var render = function () {
     } else if (boardNum == 2) {
         ctx.fillStyle = "rgb(255, 127, 80)";
     }
-    ctx.fillText("Kitties caught: " + monstersCaught, 165, 500);
+    ctx.fillText("Kitties caught: " + monstersCaught, 165, 510);
 };
 
 // is the hero kitty within the bounds of the board?
