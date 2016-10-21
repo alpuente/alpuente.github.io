@@ -7,13 +7,13 @@ canvas.width = 512;
 canvas.height = 680;
 document.body.appendChild(canvas);
 
-var boardNum = 1; // keep track of what background image is being used
+var boardNum = 2; // keep track of what background image is being used
 var backgroundReady = false;
 var backgroundImage = new Image();
 backgroundImage.onload = function() {
     backgroundReady = true;
 }
-backgroundImage.src = "gamey/board.png";
+backgroundImage.src = "gamey/board2.png";
 
 var heroReady = false;
 var heroImage = new Image();
