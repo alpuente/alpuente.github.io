@@ -7,6 +7,7 @@ canvas.width = 512;
 canvas.height = 680;
 document.body.appendChild(canvas);
 
+var boardNum = 1; // keep track of what background image is being used
 var backgroundReady = false;
 var backgroundImage = new Image();
 backgroundImage.onload = function() {
@@ -88,6 +89,11 @@ var update = function (modifier) {
         ++monstersCaught;
         reset();
     }
+    
+    if (isKittyOutOfRange()) {
+        changeBoardSrc();    
+        updateKittyLocation();
+    }
 };
 
 // draw the stuff!
@@ -108,11 +114,55 @@ var render = function () {
     ctx.font = "24px Helvetica";
     ctx.textAlign = "left";
     ctx.textBaseAlign = "top";
+    // draw white rectangle for the score box
     ctx.fillStyle = "rgb(255, 255, 255)";
     ctx.fillRect(0, 480, 512, 200);
-    ctx.fillStyle = "rgb(75, 0, 130)";
+    // set color for score words
+    if (boardNum == 1) {
+        ctx.fillStyle = "rgb(75, 0, 130)";
+    } else if (boardNum == 2) {
+        ctx.fillStyle = "rgb(255, 127, 80)";
+    }
     ctx.fillText("Kitties caught: " + monstersCaught, 165, 500);
 };
+
+// is the hero kitty within the bounds of the board?
+var isKittyOutOfRange = function () {
+    if (hero.x <= 0 || hero.x >= 512) {
+        return true;
+    } else if (hero.y <= 0 || hero.y >= 480) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// checks what the current board is and switches it
+// to a different one
+var changeBoardSrc = function () {
+    if (boardNum == 1) {
+        console.log("board");
+        backgroundImage.src = "gamey/board2.png";
+        boardNum = 2;
+    } else if (boardNum == 2) {
+        console.log("board2");
+        backgroundImage.src = "gamey/board.png";
+        boardNum = 1;
+    }
+}
+
+// move hero kitty to opposite position in board
+var updateKittyLocation = function () {
+    if (hero.x <= 0) {
+        hero.x = (hero.x + 512) - 32;
+    } else if (hero.x >= 512) {
+        hero.x = (hero.x - 512) + 32;
+    } else if (hero.y <= 0) {
+        hero.y = (hero.y + 480) - 32;
+    } else if (hero.y >= 480) {
+        hero.y = (hero.y - 480) + 32;
+    }
+}
 
 // main game loop
 var main = function () {
