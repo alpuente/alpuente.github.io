@@ -2,63 +2,35 @@
 <head>
     <title>about</title>
 	<script src="tildas.js"></script>
-    <script>
-        var things = [
-            "git", 
-            "cooking",
-            "baking",
-            "yoga",
-            "spanish", 
-            "traveling",
-            "embedded things",
-            "c/c++",
-            "vim",
-            "whitewater kayaking",
-            "camping",
-            "books on books"    
-        ];
-        
-        var thing_index = 0;
 
-        function set_div() {
-            if (thing_index == things.length) {
-                thing_index = 0;
-            }
-            var html_string = "<p style=\"display:inline\">" + things[thing_index] + "</p>";
-            document.getElementById("things").innerHTML = html_string;
-            thing_index++;
-        }
+	<!-- Bootstrap 4 !-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-        function init() {
-            setInterval(function() { set_div(); }, 100); 
-        }
-    </script>
-	<link rel="stylesheet" href="main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
 </head>
 
 <body onLoad=init() style="font-family:monospace">
-	<p> Hallooo! I'm Amy. Here are some things about me ~</p>
-    <p> I'm dirty blond and half Cuban, 
-        <a class="about" href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=dirty+blonde+and+half+cuban">which apparently is also a book</a>.</p>
-    <p> I'm currently an embedded software engineer at Lockheed Martin Aeronautics Company. </p>	
-    <p style="display: inline">I enjoy and am trying to learn a lot of things, like</p>
-    <span id="things"></span>
-    <p>Going by my facebook ad preferences, my other hobbies include raccoon, son, birth, Ferrari Testarossa, attachment theory and black hole...</p>
-    
-    <p>Here's a not that interesting timeline of my life</p>
-    <div class="timeline" style="padding-left:2em">
-    <p>1993: was born </p>
-    <p>1994 - Y2Kish: read Nancy Drew </p>
-    <p>2007ish: found out I'm pretty good at finding 4 leaf clovers </p>
-    <p>2009: met my best friend 4err </p>
-    <p>2010: read cat's cradle </p>
-    <p>2011: sold a lot of frisbees with my friends </p>
-    <p>2012: went to college </p>
-    <p>2014: wrote my first hello world </p>
-    <p>2014+: got really into computer science/started using computers for more than facebook</p>
-    <p>2016:<a class="about"href="https://www.youtube.com/watch?v=4JwVbZoDDUM"> ooh done with college ooh coding airplanes </a></p>
-    </div>
-<div id="tildas"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Amy Puente</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 </body>
 
 </html>
