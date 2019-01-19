@@ -54,12 +54,12 @@ addEventListener("keyup", function (e) {
     delete keysDown[e.keyCode];
 }, false);
 
-// reset the game when the player catches a monster
+// reset the game when the player catches a kitty
 var reset = function () {
     hero.x = canvas.width / 2;
     hero.y = canvas.height / 2;
 
-    // throw the monster somewhere on the screen randomly
+    // throw the kitty somewhere on the screen randomly
     monster.x = 32 + (Math.random() * (canvas.width - 64));
     monster.y = 32 + (Math.random() * (canvas.height - 264));
 };
@@ -118,7 +118,7 @@ var render = function () {
     ctx.fillStyle = "rgb(255, 255, 255)";
     ctx.fillRect(0, 480, 512, 200);
     // set color for score words
-    if (boardNum == 1) {
+    if (boardNum == 1) {	
         ctx.fillStyle = "rgb(75, 0, 130)";
     } else if (boardNum == 2) {
         ctx.fillStyle = "rgb(255, 127, 80)";
