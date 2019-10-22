@@ -50,6 +50,7 @@ function initMap() {
   var grenadaLocation = {lat: 12.1165, lng: -61.6790};
 
   var stVincentLocation = {lat: 12.9843, lng: -61.2872};
+  var barbadosLocation = {lat: 13.1939, lng: -59.5432};
 
 
   var map = new google.maps.Map(
@@ -127,6 +128,30 @@ function initMap() {
 
   stVincentMarker.addListener('click', function() {
     stVincentInfoWindow.open(map, stVincentMarker);
+  });
+
+  var barbadosContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Barbados</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Bridgetown</p>'+
+      '<p>Fact: The national dish of Barbados is cou-cou with fried flying fish and spicy gravy. Cou-cou is a dish similar to grits made with cornmeal and okra.</p>'
+    '</div>'+
+    '</div>';
+
+  var barbadosInfoWindow = new google.maps.InfoWindow({
+    content: barbadosContentString
+  });
+
+ var barbadosMarker = new google.maps.Marker({
+  position: barbadosLocation, 
+  map: map,
+  title: 'St. Vincent and the Grenadines'
+  })
+
+  barbadosMarker.addListener('click', function() {
+    barbadosInfoWindow.open(map, barbadosMarker);
   });
 }
     </script>
