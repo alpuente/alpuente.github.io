@@ -42,9 +42,8 @@
     </style>
 
      <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
+  var map = null;
+  var openWindow = null;
   var trinidadTobago = {lat: 10.536421, lng: -61.311951};
 
   var grenadaLocation = {lat: 12.1165, lng: -61.6790};
@@ -52,9 +51,20 @@ function initMap() {
   var stVincentLocation = {lat: 12.9843, lng: -61.2872};
   var barbadosLocation = {lat: 13.1939, lng: -59.5432};
 
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation};
 
-  var map = new google.maps.Map(
+  function focusInfoWindow(place, InfoWindow) {
+    if (openWindow) {
+      openWindow.close();
+    }
+    openWindow =  InfoWindow;
+  }
+
+// Initialize and add the map
+function initMap() {
+  map = new google.maps.Map(
       document.getElementById('map'), {zoom: 4, center: trinidadTobago});
+
 
   var ttContentString = '<div id="content">'+
     '<div id="siteNotice">'+
@@ -79,6 +89,7 @@ function initMap() {
 
   ttMarker.addListener('click', function() {
     ttInfowindow.open(map, ttMarker);
+    focusInfoWindow("tt", ttInfowindow);
   });
 
   var grenadaContentString = '<div id="content">'+
@@ -104,6 +115,7 @@ function initMap() {
 
   grenadaMarker.addListener('click', function() {
     grenadaInfowindow.open(map, grenadaMarker);
+    focusInfoWindow("grenada", grenadaInfowindow);
   });
 
   var stVincentContentString = '<div id="content">'+
@@ -128,6 +140,7 @@ function initMap() {
 
   stVincentMarker.addListener('click', function() {
     stVincentInfoWindow.open(map, stVincentMarker);
+    focusInfoWindow("stVincent", stVincentInfoWindow);
   });
 
   var barbadosContentString = '<div id="content">'+
@@ -147,11 +160,12 @@ function initMap() {
  var barbadosMarker = new google.maps.Marker({
   position: barbadosLocation, 
   map: map,
-  title: 'St. Vincent and the Grenadines'
+  title: 'Barbados'
   })
 
   barbadosMarker.addListener('click', function() {
     barbadosInfoWindow.open(map, barbadosMarker);
+    focusInfoWindow("barbados", barbadosInfoWindow);
   });
 }
     </script>
