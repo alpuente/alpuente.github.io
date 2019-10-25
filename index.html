@@ -51,7 +51,9 @@
   var stVincentLocation = {lat: 12.9843, lng: -61.2872};
   var barbadosLocation = {lat: 13.1939, lng: -59.5432};
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation};
+  var stLuciaLocation = {lat: 13.9094, lng: -60.9789};
+
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -166,6 +168,32 @@ function initMap() {
   barbadosMarker.addListener('click', function() {
     barbadosInfoWindow.open(map, barbadosMarker);
     focusInfoWindow("barbados", barbadosInfoWindow);
+  });
+
+  var stLuciaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">St. Lucia</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Castries</p>'+
+      '<p>Fact: St. Lucia is the only country in the world named after a female historical figure</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var stLuciaInfoWindow = new google.maps.InfoWindow({
+    content: stLuciaContentString
+  });
+
+  var stLuciaMarker = new google.maps.Marker({
+  position: stLuciaLocation, 
+  map: map,
+  title: 'St. Lucia'
+  })
+
+  stLuciaMarker.addListener('click', function() {
+    stLuciaInfoWindow.open(map, stLuciaMarker);
+    focusInfoWindow("stLucia", stLuciaInfoWindow);
   });
 }
     </script>
