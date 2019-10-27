@@ -53,6 +53,8 @@
 
   var stLuciaLocation = {lat: 13.9094, lng: -60.9789};
 
+  var dominicaLocation = {lat: 15.4150, lng: -61.3710};
+
   var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation};
 
   function focusInfoWindow(place, InfoWindow) {
@@ -194,6 +196,32 @@ function initMap() {
   stLuciaMarker.addListener('click', function() {
     stLuciaInfoWindow.open(map, stLuciaMarker);
     focusInfoWindow("stLucia", stLuciaInfoWindow);
+  });
+
+  var dominicaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Dominica</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Roseau</p>'+
+      '<p>Fact: Dominica is home to the world\'s second largest hot spring, Boiling Lake.</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var dominicaInfoWindow = new google.maps.InfoWindow({
+    content: dominicaContentString
+  });
+
+  var dominicaMarker = new google.maps.Marker({
+  position: dominicaLocation, 
+  map: map,
+  title: 'Dominica'
+  })
+
+  dominicaMarker.addListener('click', function() {
+    dominicaInfoWindow.open(map, dominicaMarker);
+    focusInfoWindow("stLucia", dominicaInfoWindow);
   });
 }
     </script>
