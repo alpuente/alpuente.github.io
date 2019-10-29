@@ -54,6 +54,7 @@
   var stLuciaLocation = {lat: 13.9094, lng: -60.9789};
 
   var dominicaLocation = {lat: 15.4150, lng: -61.3710};
+  var antiguaLocation = {lat: 17.0608, lng: -61.7964};
 
   var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation};
 
@@ -222,6 +223,33 @@ function initMap() {
   dominicaMarker.addListener('click', function() {
     dominicaInfoWindow.open(map, dominicaMarker);
     focusInfoWindow("stLucia", dominicaInfoWindow);
+  });
+
+  var antiguaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Antigua and Barbuda</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: St. John\'s</p>'+
+      '<p>Fact: 95% of the buildings on Barbuda were destroyed or damaged by Hurricane Irma in 2017.</p>' + 
+      '<p>Fact: Tourism accounts for half of Antigua and Barbuda\'s GDP.</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var antiguaInfoWindow = new google.maps.InfoWindow({
+    content: antiguaContentString
+  });
+
+  var antiguaMarker = new google.maps.Marker({
+  position: antiguaLocation, 
+  map: map,
+  title: 'Antigua and Barbuda'
+  })
+
+  antiguaMarker.addListener('click', function() {
+    antiguaInfoWindow.open(map, antiguaMarker);
+    focusInfoWindow("stLucia", antiguaInfoWindow);
   });
 }
     </script>
