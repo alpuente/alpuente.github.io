@@ -55,8 +55,9 @@
 
   var dominicaLocation = {lat: 15.4150, lng: -61.3710};
   var antiguaLocation = {lat: 17.0608, lng: -61.7964};
+  var stKittsLocation = {lat: 17.3578, lng: -62.7830};
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -222,7 +223,7 @@ function initMap() {
 
   dominicaMarker.addListener('click', function() {
     dominicaInfoWindow.open(map, dominicaMarker);
-    focusInfoWindow("stLucia", dominicaInfoWindow);
+    focusInfoWindow("dominica", dominicaInfoWindow);
   });
 
   var antiguaContentString = '<div id="content">'+
@@ -249,7 +250,34 @@ function initMap() {
 
   antiguaMarker.addListener('click', function() {
     antiguaInfoWindow.open(map, antiguaMarker);
-    focusInfoWindow("stLucia", antiguaInfoWindow);
+    focusInfoWindow("antigua", antiguaInfoWindow);
+  });
+
+    var stKittsContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">St. Kitt\'s and Nevis</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Basseterre</p>'+
+      '<p>Fact: The St. Kitt\'s and Nevis national football team is known as the Sugar Boyz.</p>' + 
+      '<p>Fact: St. Kitt\'s and Nevis has the oldest economic citizenship program in the world.</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var stKittsInfoWindow = new google.maps.InfoWindow({
+    content: stKittsContentString
+  });
+
+  var stKittsMarker = new google.maps.Marker({
+  position: stKittsLocation, 
+  map: map,
+  title: 'St. Kitt\'s and Nevis'
+  })
+
+  stKittsMarker.addListener('click', function() {
+    stKittsInfoWindow.open(map, stKittsMarker);
+    focusInfoWindow("stKitts", stKittsInfoWindow);
   });
 }
     </script>
