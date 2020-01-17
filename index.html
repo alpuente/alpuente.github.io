@@ -56,8 +56,9 @@
   var dominicaLocation = {lat: 15.4150, lng: -61.3710};
   var antiguaLocation = {lat: 17.0608, lng: -61.7964};
   var stKittsLocation = {lat: 17.3578, lng: -62.7830};
+  var drLocation = {lat: 18.7357, lng: -70.1627};
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -279,7 +280,36 @@ function initMap() {
     stKittsInfoWindow.open(map, stKittsMarker);
     focusInfoWindow("stKitts", stKittsInfoWindow);
   });
+
+    var drContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Dominican Republic</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Santo Domingo</p>'+
+      '<p>Fact: The highest mountain peak and lowest point of elevation in the Caribbean are located in the Dominican Republic.</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var drInfoWindow = new google.maps.InfoWindow({
+    content: drContentString
+  });
+
+  var drMarker = new google.maps.Marker({
+  position: drLocation, 
+  map: map,
+  title: 'Dominican Republic'
+  })
+
+  drMarker.addListener('click', function() {
+    drInfoWindow.open(map, drMarker);
+    focusInfoWindow("dr", drInfoWindow);
+  });
+
+
 }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5QabQiBDXMAf4aGeTHk0gxCTRm0Hd-JQ&callback=initMap">
