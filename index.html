@@ -57,8 +57,9 @@
   var antiguaLocation = {lat: 17.0608, lng: -61.7964};
   var stKittsLocation = {lat: 17.3578, lng: -62.7830};
   var drLocation = {lat: 18.7357, lng: -70.1627};
+  var haitiLocation = {lat: 18.9712, lng: 72.2852};
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -305,6 +306,32 @@ function initMap() {
   drMarker.addListener('click', function() {
     drInfoWindow.open(map, drMarker);
     focusInfoWindow("dr", drInfoWindow);
+  });
+
+      var haitiContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Haiti</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Port-au-Prince</p>'+
+      '<p>Fact: Agriculture makes up 25% of Haiti\'s GDP.</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var haitiInfoWindow = new google.maps.InfoWindow({
+    content: haitiContentString
+  });
+
+  var haitiMarker = new google.maps.Marker({
+  position: haitiLocation, 
+  map: map,
+  title: 'Dominican Republic'
+  })
+
+  haitiMarker.addListener('click', function() {
+    haitiInfoWindow.open(map, haitiMarker);
+    focusInfoWindow("haiti", haitiInfoWindow);
   });
 
 
