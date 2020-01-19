@@ -58,8 +58,9 @@
   var stKittsLocation = {lat: 17.3578, lng: -62.7830};
   var drLocation = {lat: 18.7357, lng: -70.1627};
   var haitiLocation = {lat: 18.9712, lng: 72.2852};
+  var jamaicaLocation = {lat: 18.1096, lng: 77.2975};
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -308,16 +309,16 @@ function initMap() {
     focusInfoWindow("dr", drInfoWindow);
   });
 
-      var haitiContentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Haiti</h1>'+
-      '<div id="bodyContent">'+
-      '<p>Capital: Port-au-Prince</p>'+
-      '<p>Fact: Agriculture makes up 25% of Haiti\'s GDP.</p>' + 
-      '<p>Source: Wikipedia</p>' 
-    '</div>'+
-    '</div>';
+  var haitiContentString = '<div id="content">'+
+  '<div id="siteNotice">'+
+  '</div>'+
+  '<h1 id="firstHeading" class="firstHeading">Haiti</h1>'+
+  '<div id="bodyContent">'+
+  '<p>Capital: Port-au-Prince</p>'+
+  '<p>Fact: Agriculture makes up 25% of Haiti\'s GDP.</p>' + 
+  '<p>Source: Wikipedia</p>' 
+'</div>'+
+'</div>';
 
  var haitiInfoWindow = new google.maps.InfoWindow({
     content: haitiContentString
@@ -326,7 +327,7 @@ function initMap() {
   var haitiMarker = new google.maps.Marker({
   position: haitiLocation, 
   map: map,
-  title: 'Dominican Republic'
+  title: 'Haiti'
   })
 
   haitiMarker.addListener('click', function() {
@@ -334,6 +335,31 @@ function initMap() {
     focusInfoWindow("haiti", haitiInfoWindow);
   });
 
+    var jamaicaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Jamaica</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Kingston</p>'+
+      '<p>Fact: Jamaica is a bilingual country, the two main languages being standard English and Jamaican Patois.</p>' + 
+      '<p>Source: Wikipedia</p>' 
+    '</div>'+
+    '</div>';
+
+ var jamaicaInfoWindow = new google.maps.InfoWindow({
+    content: jamaicaContentString
+  });
+
+  var jamaicaMarker = new google.maps.Marker({
+  position: jamaicaLocation, 
+  map: map,
+  title: 'Jamaica'
+  })
+
+  jamaicaMarker.addListener('click', function() {
+    jamaicaInfoWindow.open(map, jamaicaMarker);
+    focusInfoWindow("dr", jamaicaInfoWindow);
+  });
 
 }
 
