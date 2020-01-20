@@ -57,10 +57,11 @@
   var antiguaLocation = {lat: 17.0608, lng: -61.7964};
   var stKittsLocation = {lat: 17.3578, lng: -62.7830};
   var drLocation = {lat: 18.7357, lng: -70.1627};
-  var haitiLocation = {lat: 18.9712, lng: 72.2852};
-  var jamaicaLocation = {lat: 18.1096, lng: 77.2975};
+  var haitiLocation = {lat: 18.9712, lng: -72.2852};
+  var jamaicaLocation = {lat: 18.1096, lng: -77.2975};
+  var cubaLocation = {lat: 21.5218, lng: -77.7812};
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": "cubaLocation"};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -358,7 +359,32 @@ function initMap() {
 
   jamaicaMarker.addListener('click', function() {
     jamaicaInfoWindow.open(map, jamaicaMarker);
-    focusInfoWindow("dr", jamaicaInfoWindow);
+    focusInfoWindow("jamaica", jamaicaInfoWindow);
+  });
+
+  var cubaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Cuba</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Havana</p>'+
+      '<p>Fact: Cuba is made up of the island of Cuba, la Isla de Juventud and several archipelagos.</p>'
+    '</div>'+
+    '</div>';
+
+  var cubaInfoWindow = new google.maps.InfoWindow({
+    content: cubaContentString
+  });
+
+ var cubaMarker = new google.maps.Marker({
+  position: cubaLocation, 
+  map: map,
+  title: 'Cuba'
+  })
+
+  cubaMarker.addListener('click', function() {
+    cubaInfoWindow.open(map, cubaMarker);
+    focusInfoWindow("cuba", cubaInfoWindow);
   });
 
 }
