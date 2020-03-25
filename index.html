@@ -60,8 +60,9 @@
   var haitiLocation = {lat: 18.9712, lng: -72.2852};
   var jamaicaLocation = {lat: 18.1096, lng: -77.2975};
   var cubaLocation = {lat: 21.5218, lng: -77.7812};
+  var bahamasLocation = {lat: 25.0343, lng: -77.3963}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": "cubaLocation"};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -385,6 +386,31 @@ function initMap() {
   cubaMarker.addListener('click', function() {
     cubaInfoWindow.open(map, cubaMarker);
     focusInfoWindow("cuba", cubaInfoWindow);
+  });
+
+  var bahamasContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">The Bahamas</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Nassau</p>'+
+      '<p>Fact: The Bahamas has the 3rd highest GDP per capita in the Americas, behind the US and Canada.</p>'
+    '</div>'+
+    '</div>';
+
+  var bahamasInfoWindow = new google.maps.InfoWindow({
+    content: bahamasContentString
+  });
+
+ var bahamasMarker = new google.maps.Marker({
+  position: bahamasLocation, 
+  map: map,
+  title: 'The Bahamas'
+  })
+
+  bahamasMarker.addListener('click', function() {
+    bahamasInfoWindow.open(map, bahamasMarker);
+    focusInfoWindow("bahamas", bahamasInfoWindow);
   });
 
 }
