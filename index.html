@@ -62,8 +62,9 @@
   var cubaLocation = {lat: 21.5218, lng: -77.7812};
   var bahamasLocation = {lat: 25.0343, lng: -77.3963}
   var usaLocation = {lat: 37.0902, lng: -95.7129}
+  var canadaLocation = {lat: 56.1304, lng: -106.3468}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -412,6 +413,31 @@ function initMap() {
   bahamasMarker.addListener('click', function() {
     bahamasInfoWindow.open(map, bahamasMarker);
     focusInfoWindow("bahamas", bahamasInfoWindow);
+  });
+
+  var canadaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Canada</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Ottowa</p>'+
+      '<p>Fact: Canada is one of only a few developed nations that isn\'t a net exporter of energy.</p>'
+    '</div>'+
+    '</div>';
+
+  var canadaInfoWindow = new google.maps.InfoWindow({
+    content: canadaContentString
+  });
+
+ var canadaMarker = new google.maps.Marker({
+  position: canadaLocation, 
+  map: map,
+  title: 'Canada'
+  })
+
+  canadaMarker.addListener('click', function() {
+    canadaInfoWindow.open(map, canadaMarker);
+    focusInfoWindow("usa", canadaInfoWindow);
   });
 
   var usaContentString = '<div id="content">'+
