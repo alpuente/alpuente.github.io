@@ -63,8 +63,9 @@
   var bahamasLocation = {lat: 25.0343, lng: -77.3963}
   var usaLocation = {lat: 37.0902, lng: -95.7129}
   var canadaLocation = {lat: 56.1304, lng: -106.3468}
+  var mexicoLocation = {lat: 23.6345, lng: -102.5528}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -463,6 +464,31 @@ function initMap() {
   usaMarker.addListener('click', function() {
     usaInfoWindow.open(map, usaMarker);
     focusInfoWindow("usa", usaInfoWindow);
+  });
+
+  var mexicoContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Mexico</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Mexico City</p>'+
+      '<p>Fact: Mexico is comprised of 32 states, the largest of which is Chihuahua.</p>'
+    '</div>'+
+    '</div>';
+
+  var mexicoInfoWindow = new google.maps.InfoWindow({
+    content: mexicoContentString
+  });
+
+ var mexicoMarker = new google.maps.Marker({
+  position: mexicoLocation, 
+  map: map,
+  title: 'Mexico'
+  })
+
+  mexicoMarker.addListener('click', function() {
+    mexicoInfoWindow.open(map, mexicoMarker);
+    focusInfoWindow("mexico", mexicoInfoWindow);
   });
 
 }
