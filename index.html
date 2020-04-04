@@ -65,8 +65,10 @@
   var canadaLocation = {lat: 56.1304, lng: -106.3468}
   var mexicoLocation = {lat: 23.6345, lng: -102.5528}
   var belizeLocation = {lat: 17.1899, lng: -88.4976}
+  var guatemalaLocation = {lat: 15.7835, lng: -90.2308}
+  var elSalvadorLocation = {lat: 13.7942, lng: -88.8965}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -515,6 +517,56 @@ function initMap() {
   belizeMarker.addListener('click', function() {
     belizeInfoWindow.open(map, belizeMarker);
     focusInfoWindow("belize", belizeInfoWindow);
+  });
+
+  var guatemalaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Guatemala</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Guatemala City</p>'+
+      '<p>Fact: In the early 20th century, Guatemala was led by a number of dictators supported by the US and the United Fruit Company.</p>'
+    '</div>'+
+    '</div>';
+
+  var guatemalaInfoWindow = new google.maps.InfoWindow({
+    content: guatemalaContentString
+  });
+
+ var guatemalaMarker = new google.maps.Marker({
+  position: guatemalaLocation, 
+  map: map,
+  title: 'Guatemala'
+  })
+
+  guatemalaMarker.addListener('click', function() {
+    guatemalaInfoWindow.open(map, guatemalaMarker);
+    focusInfoWindow("guatemala", guatemalaInfoWindow);
+  });
+
+  var elSalvadorContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">El Salvador</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: San Salvador</p>'+
+      '<p>Fact: El Salvador uses the US dollar as its currency.</p>'
+    '</div>'+
+    '</div>';
+
+  var elSalvadorInfoWindow = new google.maps.InfoWindow({
+    content: elSalvadorContentString
+  });
+
+ var elSalvadorMarker = new google.maps.Marker({
+  position: elSalvadorLocation, 
+  map: map,
+  title: 'El Salvador'
+  })
+
+  elSalvadorMarker.addListener('click', function() {
+    elSalvadorInfoWindow.open(map, elSalvadorMarker);
+    focusInfoWindow("elSalvador", elSalvadorInfoWindow);
   });
 }
 
