@@ -67,8 +67,9 @@
   var belizeLocation = {lat: 17.1899, lng: -88.4976}
   var guatemalaLocation = {lat: 15.7835, lng: -90.2308}
   var elSalvadorLocation = {lat: 13.7942, lng: -88.8965}
+  var hondurasLocation = {lat: 15.2000, lng: -86.2419}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation, "honduras" : hondurasLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -567,6 +568,31 @@ function initMap() {
   elSalvadorMarker.addListener('click', function() {
     elSalvadorInfoWindow.open(map, elSalvadorMarker);
     focusInfoWindow("elSalvador", elSalvadorInfoWindow);
+  });
+
+  var hondurasContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Honduras</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Tegucigalpa</p>'+
+      '<p>Fact: In 2009, a coup removed President Manuel Zelaya from power.</p>'
+    '</div>'+
+    '</div>';
+
+  var hondurasInfoWindow = new google.maps.InfoWindow({
+    content: hondurasContentString
+  });
+
+ var hondurasMarker = new google.maps.Marker({
+  position: hondurasLocation, 
+  map: map,
+  title: 'Honduras'
+  })
+
+  hondurasMarker.addListener('click', function() {
+    hondurasInfoWindow.open(map, hondurasMarker);
+    focusInfoWindow("honduras", hondurasInfoWindow);
   });
 }
 
