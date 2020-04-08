@@ -68,8 +68,9 @@
   var guatemalaLocation = {lat: 15.7835, lng: -90.2308}
   var elSalvadorLocation = {lat: 13.7942, lng: -88.8965}
   var hondurasLocation = {lat: 15.2000, lng: -86.2419}
+  var nicaraguaLocation = {lat: 12.8654, lng: -85.2072}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation, "honduras" : hondurasLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation, "honduras" : hondurasLocation, "nicaragua": nicaraguaLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -593,6 +594,31 @@ function initMap() {
   hondurasMarker.addListener('click', function() {
     hondurasInfoWindow.open(map, hondurasMarker);
     focusInfoWindow("honduras", hondurasInfoWindow);
+  });
+
+  var nicaraguaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Nicaragua</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: Managua</p>'+
+      '<p>Fact: The British colonized the eastern coast of Nicaragua, or the Mosquito Coast, during the 17th century. It became part of Nicarauga in 1894.</p>'
+    '</div>'+
+    '</div>';
+
+  var nicaraguaInfoWindow = new google.maps.InfoWindow({
+    content: nicaraguaContentString
+  });
+
+ var nicaraguaMarker = new google.maps.Marker({
+  position: nicaraguaLocation, 
+  map: map,
+  title: 'Nicaragua'
+  })
+
+  nicaraguaMarker.addListener('click', function() {
+    nicaraguaInfoWindow.open(map, nicaraguaMarker);
+    focusInfoWindow("nicaragua", nicaraguaInfoWindow);
   });
 }
 
