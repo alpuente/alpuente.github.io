@@ -69,8 +69,9 @@
   var elSalvadorLocation = {lat: 13.7942, lng: -88.8965}
   var hondurasLocation = {lat: 15.2000, lng: -86.2419}
   var nicaraguaLocation = {lat: 12.8654, lng: -85.2072}
+  var costaRicaLocation = {lat: 9.7489, lng: -83.7534}
 
-  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation, "honduras" : hondurasLocation, "nicaragua": nicaraguaLocation};
+  var places = {"tt": trinidadTobago, "grenada": grenadaLocation, "stVincent": stVincentLocation, "barbados": barbadosLocation, "stLucia" : stLuciaLocation, "dominica" : dominicaLocation, "antigua" : antiguaLocation, "stKitts" : stKittsLocation, "dr": drLocation, "haiti": haitiLocation, "jamaica": jamaicaLocation, "cuba": cubaLocation, "bahamas": bahamasLocation, "usa" : usaLocation, "canada" : canadaLocation, "mexico" : mexicoLocation, "belize" : belizeLocation, "guatemala" : guatemalaLocation, "elSalvador" : elSalvadorLocation, "honduras" : hondurasLocation, "nicaragua": nicaraguaLocation, "costaRica" : costaRicaLocation};
 
   function focusInfoWindow(place, InfoWindow) {
     if (openWindow) {
@@ -619,6 +620,31 @@ function initMap() {
   nicaraguaMarker.addListener('click', function() {
     nicaraguaInfoWindow.open(map, nicaraguaMarker);
     focusInfoWindow("nicaragua", nicaraguaInfoWindow);
+  });
+
+  var costaRicaContentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Costa Rica</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Capital: San Jose</p>'+
+      '<p>Fact: Costa Rica disbanded its army in 1949 and is one of only a few countries with no standing army.</p>'
+    '</div>'+
+    '</div>';
+
+  var costaRicaInfoWindow = new google.maps.InfoWindow({
+    content: costaRicaContentString
+  });
+
+ var costaRicaMarker = new google.maps.Marker({
+  position: costaRicaLocation, 
+  map: map,
+  title: 'Costa Rica'
+  })
+
+  costaRicaMarker.addListener('click', function() {
+    costaRicaInfoWindow.open(map, costaRicaMarker);
+    focusInfoWindow("costaRica", costaRicaInfoWindow);
   });
 }
 
